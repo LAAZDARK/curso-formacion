@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,5 @@ use App\Http\Controllers\PagesController;
 // });
 
 Route::get("/", [PagesController::class, "viewHome"])->name('home');
+Route::get("curso", [PagesController::class, "viewCourse"])->name('view.course');
+Route::resource('course', CourseController::class)->names('course');
