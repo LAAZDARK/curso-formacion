@@ -2,12 +2,7 @@
 
 namespace App\Http\Controllers;
 
-// use App\Models\User;
-
-// use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-// use Illuminate\Support\Facades\Auth;
-// use Illuminate\Support\Facades\Validator;
 
 
 
@@ -21,10 +16,22 @@ class PagesController extends Controller
         return view('pages.index');
     }
 
-    public function viewCourse()
+    public function viewDashboard()
     {
 
-        return view('pages.course');
+        return view('pages.dashboard');
+    }
+
+    public function viewRegister()
+    {
+
+        return view('pages.register');
+    }
+
+    public function viewLogin()
+    {
+
+        return view('pages.login');
     }
 
 

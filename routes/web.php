@@ -20,5 +20,7 @@ use App\Http\Controllers\CourseController;
 // });
 
 Route::get("/", [PagesController::class, "viewHome"])->name('home');
-Route::get("curso", [PagesController::class, "viewCourse"])->name('view.course');
-Route::resource('course', CourseController::class)->names('course');
+Route::get("dashboard", [PagesController::class, "viewDashboard"])->name('view.dashboard');
+Route::get("registro", [PagesController::class, "viewRegister"])->name('view.register');
+Route::get("login", [PagesController::class, "viewLogin"])->name('view.login');
+// Route::resource('course', CourseController::class)->names('course');
