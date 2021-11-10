@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 
 
@@ -32,6 +33,20 @@ class PagesController extends Controller
     {
 
         return view('pages.login');
+    }
+
+    public function viewProfile(Request $request)
+    {
+        $user = $request->user();
+
+        return view('pages.profile',['user' => $user]);
+    }
+
+    public function viewUpdateProfile(Request $request)
+    {
+        $user = $request->user();
+
+        return view('pages.update-profile',['user' => $user]);
     }
 
 

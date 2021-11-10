@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\CourseController;
 
@@ -21,15 +22,18 @@ use App\Http\Controllers\CourseController;
 // });
 
 Route::get("/", [PagesController::class, "viewHome"])->name('home');
-Route::get("registro", [PagesController::class, "viewRegister"])->name('page.register');
+Route::get("/registro", [PagesController::class, "viewRegister"])->name('page.register');
 Route::post("/register", [AuthController::class, "register"])->name('register');
-Route::get("login", [PagesController::class, "viewLogin"])->name('login');
+Route::get("/login", [PagesController::class, "viewLogin"])->name('login');
 Route::post("/login", [AuthController::class, "login"])->name('auth.login');
 Route::get("/logout", [AuthController::class, "logout"])->name('logout');
 // Route::resource('course', CourseController::class)->names('course');
 
 Route::middleware('auth:web')->group(function () {
 
-    Route::get("dashboard", [PagesController::class, "viewDashboard"])->name('view.dashboard');
+    Route::get("/dashboard", [PagesController::class, "viewDashboard"])->name('view.dashboard');
+    Route::get("/perfil", [PagesController::class, "viewProfile"])->name('view.profile');
+    Route::get("/perfil/update", [PagesController::class, "viewUpdateProfile"])->name('show.edit.profile');
+    Route::post("/profile/update", [UserController::class, "update"])->name('update.profile');
 
 });

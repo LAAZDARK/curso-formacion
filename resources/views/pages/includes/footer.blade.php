@@ -1,12 +1,7 @@
-<!--**********************************
-    Footer start
-***********************************-->
+
 <div class="footer">
     <div class="copyright">
-        <p>Copyright &copy; Designed & Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a> 2018</p>
+        <p>Copyright &copy; Todos los derechos reservados <a href="preparate.com">Preparate</a> 2021</p>
     </div>
 </div>
-<!--**********************************
-    Footer end
-***********************************-->
 </div>

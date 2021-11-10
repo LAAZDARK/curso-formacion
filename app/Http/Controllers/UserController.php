@@ -55,7 +55,7 @@ class UserController extends Controller
         // return $this->sendResponse($product, 'Se actualizo correctamente', 200);
 
         // return back()->with('flash', 'Se actualizaron correctamente los datos');
-        return redirect()->route('page.perfil')->with("success", "Los datos se actualizaron correctamente");
+        return redirect()->route('view.profile')->with("success", "Los datos se actualizaron correctamente");
     }
 
 

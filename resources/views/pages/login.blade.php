@@ -51,6 +51,7 @@
                                 <h4>Login</h4>
 
                                 <form class="mt-5 mb-5 login-input" action=" {{ route('auth.login')}} " method="post">
+                                    @csrf
                                     <div class="form-group">
                                         <input type="email" name="email" class="form-control" placeholder="Email" required>
                                     </div>
