@@ -83,10 +83,10 @@
                       <a class="page-scroll" href="#why">¿Por qué?</a>
                     </li>
                     <li class="nav-item">
-                      <a href="{{ route('view.login')}}">Iniciar sesión</a>
+                      <a href="{{ route('login')}}">Iniciar sesión</a>
                     </li>
                     <li class="nav-item">
-                      <a href="{{ route('view.register')}}">Registro</a>
+                      <a href="{{ route('page.register')}}">Registro</a>
                     </li>
                   </ul>
                 </div>
