@@ -9,7 +9,7 @@
         <div class="col p-md-0">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Perfil</a></li>
             </ol>
         </div>
     </div>
@@ -24,11 +24,11 @@
                             <img class="mr-3" src="images/avatar/11.png" width="80" height="80" alt="">
                             <div class="media-body">
                                 <h3 class="mb-0">{{$user->name}}</h3>
-                                <p class="text-muted mb-0">{{$user->nationality}}</p>
+                                {{-- <p class="text-muted mb-0">{{$user->nationality}}</p> --}}
                             </div>
                         </div>
 
-                        <h4>Datos personales</h4>
+                        <h4>Perfil</h4>
                         {{-- <p class="text-muted">Hi, I'm Pikamy, has been the industry standard dummy text ever since the 1500s.</p> --}}
                         <ul class="card-profile__info">
                             <li class="mb-1"><strong class="text-dark mr-4">Telefono</strong> <span>{{$user->phone}}</span></li>
@@ -36,6 +36,8 @@
                             <li><strong class="text-dark mr-4">Fecha de nacimiento</strong> <span>{{$user->birthday}}</span></li>
                             <li><strong class="text-dark mr-4">Sexo</strong> <span>{{$user->gender}}</span></li>
                             <li><strong class="text-dark mr-4">NIF</strong> <span>{{$user->nif}}</span></li>
+                            <li><strong class="text-dark mr-4">Salario</strong> <span>${{$user->salary}}</span></li>
+                            <li><strong class="text-dark mr-4">Firma</strong> <span>{{$user->signature == "1"? "Si" : "No"}}</span></li>
                         </ul>
                         <div class="row mb-5">
                             <div class="col-12 text-center">
@@ -65,56 +67,26 @@
                 @endif
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Domicilio</h4>
+                        <h4 class="card-title">Información</h4>
                         <div id="activity">
                             <div class="media border-bottom-1 pt-3 pb-3">
-                                <img width="35" src="./images/avatar/1.jpg" class="mr-3 rounded-circle">
                                 <div class="media-body">
-                                    <h5>Received New Order</h5>
-                                    <p class="mb-0">I shared this on my fb wall a few months back,</p>
-                                </div><span class="text-muted ">April 24, 2018</span>
+                                    <h5>Nacionalidad</h5>
+                                    <p class="mb-0">{{$user->nationality}}</p>
+                                </div><span class="text-muted "></span>
                             </div>
                             <div class="media border-bottom-1 pt-3 pb-3">
-                                <img width="35" src="./images/avatar/2.jpg" class="mr-3 rounded-circle">
                                 <div class="media-body">
-                                    <h5>iPhone develered</h5>
-                                    <p class="mb-0">I shared this on my fb wall a few months back,</p>
-                                </div><span class="text-muted ">April 24, 2018</span>
+                                    <h5>Dirección</h5>
+                                    <p class="mb-0">{{$user->address}}</p>
+                                </div><span class="text-muted "></span>
                             </div>
+
                             <div class="media border-bottom-1 pt-3 pb-3">
-                                <img width="35" src="./images/avatar/2.jpg" class="mr-3 rounded-circle">
                                 <div class="media-body">
-                                    <h5>3 Order Pending</h5>
-                                    <p class="mb-0">I shared this on my fb wall a few months back,</p>
-                                </div><span class="text-muted ">April 24, 2018</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Cuenta</h4>
-                        <div id="activity">
-                            <div class="media border-bottom-1 pt-3 pb-3">
-                                <img width="35" src="./images/avatar/1.jpg" class="mr-3 rounded-circle">
-                                <div class="media-body">
-                                    <h5>Received New Order</h5>
-                                    <p class="mb-0">I shared this on my fb wall a few months back,</p>
-                                </div><span class="text-muted ">April 24, 2018</span>
-                            </div>
-                            <div class="media border-bottom-1 pt-3 pb-3">
-                                <img width="35" src="./images/avatar/2.jpg" class="mr-3 rounded-circle">
-                                <div class="media-body">
-                                    <h5>iPhone develered</h5>
-                                    <p class="mb-0">I shared this on my fb wall a few months back,</p>
-                                </div><span class="text-muted ">April 24, 2018</span>
-                            </div>
-                            <div class="media border-bottom-1 pt-3 pb-3">
-                                <img width="35" src="./images/avatar/2.jpg" class="mr-3 rounded-circle">
-                                <div class="media-body">
-                                    <h5>3 Order Pending</h5>
-                                    <p class="mb-0">I shared this on my fb wall a few months back,</p>
-                                </div><span class="text-muted ">April 24, 2018</span>
+                                    <h5>Capacitado</h5>
+                                    <p class="mb-0">{{$user->status == "1"? "Si" : "No"}}</p>
+                                </div><span class="text-muted "></span>
                             </div>
                         </div>
                     </div>

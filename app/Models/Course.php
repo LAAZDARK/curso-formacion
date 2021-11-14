@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
-    public $table = "cursos";
+    use HasFactory;
+    public $table = "courses";
 
     // CONST STATUS_SOLD = 'Sold';
     // CONST STATUS_CART = 'Cart';
@@ -17,7 +18,8 @@ class Course extends Model
         'nombre',
         'descripcion',
         'duracion',
-        'costo'
+        'costo',
+        'course_id'
     ];
 
 
