@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
+    CONST STATUS_FALSE = false;
+    CONST STATUS_TRUE = true;
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -29,6 +31,8 @@ class User extends Authenticatable
         'address',
         'salary',
         'nif',
+        'status',
+        'signature'
     ];
 
     /**
