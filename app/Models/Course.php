@@ -22,6 +22,13 @@ class Course extends Model
         'course_id'
     ];
 
+    protected $date = [
+        'created_at'
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime:d/m/Y H:i:s',
+    ];
 
 
 }

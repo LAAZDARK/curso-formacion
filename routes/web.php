@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\EmployerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,5 +36,11 @@ Route::middleware('auth:web')->group(function () {
     Route::get("/perfil", [PagesController::class, "viewProfile"])->name('view.profile');
     Route::get("/perfil/update", [PagesController::class, "viewUpdateProfile"])->name('show.edit.profile');
     Route::post("/profile/update", [UserController::class, "update"])->name('update.profile');
+
+    Route::get("/cursos", [PagesController::class, "viewCourses"])->name('view.courses');
+    Route::resource('course', CourseController::class)->names('course');
+
+    Route::get("/empleados", [PagesController::class, "viewEmployers"])->name('view.employers');
+    Route::resource('employer', EmployerController::class)->names('employer');
 
 });

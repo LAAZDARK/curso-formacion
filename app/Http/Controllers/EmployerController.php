@@ -4,15 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 
-use App\Models\Course;
 use App\Traits\ResponseApi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 
-class CourseController extends Controller
+class EmployerController extends Controller
 {
     use ResponseApi;
 
@@ -21,9 +19,9 @@ class CourseController extends Controller
     public function index()
     {
 
-        $courses = Course::orderBy('id', 'desc')->get();
+        $users = User::orderBy('id', 'desc')->get();
 
-        return $this->sendResponse($courses, 'Lista de cursos');
+        return $this->sendResponse($users, 'Lista de usuarios');
     }
 
     public function show(Request $request)
@@ -42,19 +40,19 @@ class CourseController extends Controller
         $input = $request->all();
         // dd($input);
         $rules = [
-            'nombre' => 'required',
+            'name' => 'required',
         ];
         $validator = Validator::make($input, $rules);
         if ($validator->fails()) return $this->sendError('Error de validacion', $validator->error()->all(), 422);
 
 
-        $course = Course::findOrFail($id);
-        $course->fill($input);
-        $course->save();
+        $user = User::findOrFail($id);
+        $user->fill($input);
+        $user->save();
 
-        $courses = Course::orderBy('id', 'desc')->get();
+        $users = User::orderBy('id', 'desc')->get();
 
-        return $this->sendResponse($courses, 'Se actualizo correctamente');
+        return $this->sendResponse($users, 'Se actualizo correctamente');
         // return redirect()->route('view.courses')->with("success", "Los datos se actualizaron correctamente");
     }
 
@@ -63,25 +61,25 @@ class CourseController extends Controller
     {
         $input = $request->all();
         $rules = [
-            'nombre' => 'required'
+            'name' => 'required'
         ];
         $validator = Validator::make($input, $rules);
         if ($validator->fails()) return $this->sendError('Error de validacion', $validator->error()->all(), 422);
 
-        $course = new Course();
-        $course->fill($input);
-        $course->save();
+        $user = new User();
+        $user->fill($input);
+        $user->save();
 
-        $courses = Course::orderBy('id', 'desc')->get();
+        $users = User::orderBy('id', 'desc')->get();
 
-        return $this->sendResponse($courses, 'Se agrego correctamente', 200);
+        return $this->sendResponse($users, 'Se agrego correctamente', 200);
     }
 
 
 
     public function destroy($id)
     {
-        $user = Course::findOrFail($id);
+        $user = User::findOrFail($id);
 
         $user->delete();
 

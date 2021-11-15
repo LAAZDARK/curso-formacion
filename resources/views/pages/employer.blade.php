@@ -5,9 +5,9 @@
 <div class="content-body">
     <div class="container-fluid mt-3">
 
-<div id="course">
-<input type="hidden" ref="getCourse" value="{{ route('course.index')}}">
-<input type="hidden" ref="storeCourse" value="{{ route('course.store')}}">
+<div id="employer">
+<input type="hidden" ref="getEmployer" value="{{ route('employer.index')}}">
+<input type="hidden" ref="storeEmployer" value="{{ route('employer.store')}}">
 <div class="row">
     <div class="col-lg-12">
         <div v-if="message.success">
@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class=" d-flex justify-content-end">
-            <button class="btn btn-info"  v-on:click.prevent="addCourse">Agregar</button>
+            <button class="btn btn-info"  v-on:click.prevent="addEmployer">Agregar</button>
         </div>
         <div class="card">
             <div class="card-body">
@@ -38,9 +38,16 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Nombre</th>
-                                    <th>Descripción</th>
-                                    <th>Duración (hrs)</th>
-                                    <th>Costo</th>
+                                    <th>Correo</th>
+                                    <th>Telefono</th>
+                                    <th>Genero</th>
+                                    <th>Cumpleaños</th>
+                                    <th>Nacionalidad</th>
+                                    <th>Direccion</th>
+                                    <th>Salario</th>
+                                    <th>NIF</th>
+                                    <th>Status</th>
+                                    <th>Firma</th>
                                     <th>Creado</th>
                                     <th>Editar</th>
                                     <th>Eliminar</th>
@@ -50,30 +57,51 @@
                                 <tr v-for="item in list">
                                     <td>@{{item.id}}</td>
                                     <td>
-                                        <span>@{{item.nombre}}</span>
+                                        <span>@{{item.name}}</span>
                                     </td>
                                     <td>
-                                        <span>@{{item.descripcion}}</span>
+                                        <span>@{{item.email}}</span>
                                     </td>
                                     <td>
-                                        <span>@{{item.duracion}}</span>
+                                        <span>@{{item.phone}}</span>
                                     </td>
                                     <td>
-                                        <span>$@{{item.costo}}</span>
+                                        <span>@{{item.gender}}</span>
+                                    </td>
+                                    <td>
+                                        <span>@{{item.birthday}}</span>
+                                    </td>
+                                    <td>
+                                        <span>@{{item.nationality}}</span>
+                                    </td>
+                                    <td>
+                                        <span>@{{item.address}}</span>
+                                    </td>
+                                    <td>
+                                        <span>$@{{item.salary}}</span>
+                                    </td>
+                                    <td>
+                                        <span>@{{item.nif}}</span>
+                                    </td>
+                                    <td>
+                                        <span>@{{item.status=='1'?'Capacitado': 'No Capacitado'}}</span>
+                                    </td>
+                                    <td>
+                                        <span>@{{item.signature=='1'?'Firma': 'Sin firma'}}</span>
                                     </td>
                                     <td>
                                         <span>@{{item.created_at}}</span>
                                     </td>
-                                    <td><button class="btn btn-info btn-sm"  v-on:click.prevent="editCourse(item)">Editar</button></td>
+                                    <td><button class="btn btn-info btn-sm"  v-on:click.prevent="editEmployer(item)">Editar</button></td>
                                     {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button> --}}
-                                    <td><button class="btn btn-danger btn-sm" v-on:click.prevent="deleteCourse(item.id)">Eliminar</button></td>
+                                    <td><button class="btn btn-danger btn-sm" v-on:click.prevent="deleteEmployer(item.id)">Eliminar</button></td>
                                 </tr>
 
 
                             </tbody>
                         </table>
-                        @include('pages.chunks.modal-course-edit')
-                        @include('pages.chunks.modal-course-add')
+                        @include('pages.chunks.modal-employer-edit')
+                        @include('pages.chunks.modal-employer-add')
                     </div>
                 </div>
             </div>

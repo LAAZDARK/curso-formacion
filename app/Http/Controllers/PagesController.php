@@ -49,6 +49,18 @@ class PagesController extends Controller
         return view('pages.update-profile',['user' => $user]);
     }
 
+    public function viewCourses()
+    {
+
+        return view('pages.course');
+    }
+
+    public function viewEmployers()
+    {
+
+        return view('pages.employer');
+    }
+
 
 
 }
