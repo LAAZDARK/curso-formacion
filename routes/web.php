@@ -51,4 +51,8 @@ Route::middleware('auth:web')->group(function () {
     Route::get("/user/trained", [UserController::class, "listOfTrainedUsers"])->name('list.trained.user');
     Route::get("/courses/list", [UserController::class, "listCourses"])->name('list.courses');
 
+    Route::get("/list/courses/top", [UserController::class, "listCourseTop"])->name('list.course.top');
+    Route::get("/list/users/top", [UserController::class, "listUserTop"])->name('list.user.top');
+
+
 });

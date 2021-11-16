@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Course;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 
 
@@ -20,7 +23,23 @@ class PagesController extends Controller
     public function viewDashboard()
     {
 
-        return view('pages.dashboard');
+        $users = User::orderBy('updated_at', 'desc')->limit(5)->get();
+        $courses = Course::orderBy('created_at', 'desc')->limit(5)->get();
+        $countUsers = User::count();
+        $countCourses = Course::count();
+        $sumHours = Course::sum('duracion');
+
+        $date = Carbon::now('America/Mexico_City')->format('d/m/Y');
+        // dd($countUsers);
+
+        return view('pages.dashboard', [
+            'users' => $users,
+            'courses' => $courses,
+            'countUsers' => $countUsers,
+            'countCourses' => $countCourses,
+            'sumHours' => $sumHours,
+            'date' => $date
+        ]);
     }
 
     public function viewRegister()

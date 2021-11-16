@@ -80,4 +80,19 @@ class UserController extends Controller
         $courses = Course::orderBy('id', 'desc')->get();
         return $this->sendResponse($courses, 'Lista de Cursos');
     }
+
+    // public function listUserTop()
+    // {
+    //     $user = User::orderBy('updated_at', 'desc')->limit(5)->get();
+    //     return $this->sendResponse($user, 'Lista de usuarios');
+    // }
+
+    // public function listCourseTop()
+    // {
+    //     $courses = Course::orderBy('created_at', 'desc')->limit(5)->get();
+    //     return $this->sendResponse($courses, 'Lista de cursos');
+    // }
+
+
+
 }
