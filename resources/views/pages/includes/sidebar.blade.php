@@ -22,7 +22,12 @@
                     </li>
                     <li>
                         <a href="{{ route('view.employers')}}" aria-expanded="false">
-                            <i class="icon-badge menu-icon"></i><span class="nav-text">Empleados</span>
+                            <i class="icon-anchor menu-icon"></i><span class="nav-text">Empleados</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('view.editions')}}" aria-expanded="false">
+                            <i class="icon-note menu-icon"></i><span class="nav-text">Ediciones</span>
                         </a>
                     </li>
 

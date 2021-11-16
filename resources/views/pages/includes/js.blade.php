@@ -42,6 +42,7 @@
 <script src="{{ asset('js/dashboard/dashboard-1.js')}}"></script>
 <script src="{{ asset('js/course.js')}}"></script>
 <script src="{{ asset('js/employer.js')}}"></script>
+<script src="{{ asset('js/edition.js')}}"></script>
 @stack('js-script')
 </body>
 

@@ -61,6 +61,12 @@ class PagesController extends Controller
         return view('pages.employer');
     }
 
+    public function viewEditions()
+    {
+
+        return view('pages.edition');
+    }
+
 
 
 }

@@ -10,10 +10,10 @@ const Employer = {
         };
     },
     mounted: function() {
-        this.show()
+        this.showEmployer()
     },
     methods: {
-        async show () {
+        async showEmployer () {
             await axios.get(this.$refs.getEmployer.value)
             .then(response => {
                 this.list = response.data.data
@@ -93,7 +93,7 @@ const Employer = {
         deleteEmployer: function(id) {
             // console.log(id);
 			axios.delete(this.$refs.getEmployer.value + '/' + id).then(response => { //eliminamos
-				this.show()
+				this.showEmployer()
 			});
 		},
     }

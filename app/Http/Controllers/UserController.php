@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 
+use App\Models\Course;
 use App\Traits\ResponseApi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -67,5 +68,16 @@ class UserController extends Controller
         $user->delete();
 
         return $this->sendResponse(true, 'se ha elimindao el articulo seleccionado');
+    }
+
+    public function listOfTrainedUsers()
+    {
+        $users = User::where('status', '1')->orderBy('id', 'desc')->get();
+        return $this->sendResponse($users, 'Lista de usuarios capacitados');
+    }
+    public function listCourses()
+    {
+        $courses = Course::orderBy('id', 'desc')->get();
+        return $this->sendResponse($courses, 'Lista de Cursos');
     }
 }

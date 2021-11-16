@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Edition;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Course extends Model
 {
@@ -19,7 +20,8 @@ class Course extends Model
         'descripcion',
         'duracion',
         'costo',
-        'course_id'
+        'course_id',
+        'teacher_id',
     ];
 
     protected $date = [
@@ -29,6 +31,10 @@ class Course extends Model
     protected $casts = [
         'created_at' => 'datetime:d/m/Y H:i:s',
     ];
+
+    public function editions () {
+        return $this->hasMany(Edition::class);
+    }
 
 
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\EditionController;
 use App\Http\Controllers\EmployerController;
 
 /*
@@ -42,5 +43,12 @@ Route::middleware('auth:web')->group(function () {
 
     Route::get("/empleados", [PagesController::class, "viewEmployers"])->name('view.employers');
     Route::resource('employer', EmployerController::class)->names('employer');
+
+    Route::get("/ediciones", [PagesController::class, "viewEditions"])->name('view.editions');
+    Route::resource('edition', EditionController::class)->names('edition');
+
+
+    Route::get("/user/trained", [UserController::class, "listOfTrainedUsers"])->name('list.trained.user');
+    Route::get("/courses/list", [UserController::class, "listCourses"])->name('list.courses');
 
 });
