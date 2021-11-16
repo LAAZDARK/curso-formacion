@@ -8,6 +8,7 @@ const Course = {
             list: [],
             message: "",
             error: "",
+            searchCourse: ''
         };
     },
     mounted: function() {
@@ -37,7 +38,6 @@ const Course = {
             $('#add').modal('show');
         },
         async editCourse (row) {
-            console.log(row)
             this.form = {
                 id: row.id,
                 nombre: row.nombre,
@@ -50,8 +50,6 @@ const Course = {
             console.log(this.form)
         },
         updateCourse:  function() {
-            console.log('Holaff')
-            console.log(this.form)
             axios.put(this.$refs.getCourse.value + '/' +this.form.id, this.form)
             .then(response => {
                 // console.log(response.data)
@@ -85,7 +83,21 @@ const Course = {
             .then(response => { //eliminamos
 				this.show()
 			});
-		},
+		}
+    },
+    computed: {
+        searchDataCourses: function() {
+            var searchCourse = this.searchCourse;
+
+            if (searchCourse) {
+                return this.list.filter(function(product) {
+                    return Object.keys(product).some(function(key) {
+                        return String(product[key]).toLowerCase().indexOf(searchCourse) > -1
+                    })
+                })
+            }
+            return this.list;
+        }
     }
 }
 

@@ -9,7 +9,8 @@ const Edition = {
             message: "",
             error: "",
             listUsers: [],
-            listCourses: []
+            listCourses: [],
+            searchEdition: ''
         };
     },
     mounted: function() {
@@ -118,7 +119,21 @@ const Edition = {
             .then(response => { //eliminamos
 				this.showEdition()
 			});
-		},
+		}
+    },
+    computed: {
+        searchDataEditions: function() {
+            var searchEdition = this.searchEdition;
+
+            if (searchEdition) {
+                return this.list.filter(function(edition) {
+                    return Object.keys(edition).some(function(key) {
+                        return String(edition[key]).toLowerCase().indexOf(searchEdition) > -1
+                    })
+                })
+            }
+            return this.list;
+        }
     }
 }
 

@@ -7,6 +7,7 @@ const Employer = {
             list: [],
             message: "",
             error: "",
+            searchEmployer: ''
         };
     },
     mounted: function() {
@@ -95,7 +96,21 @@ const Employer = {
 			axios.delete(this.$refs.getEmployer.value + '/' + id).then(response => { //eliminamos
 				this.showEmployer()
 			});
-		},
+		}
+    },
+    computed: {
+        searchDataEmployers: function() {
+            var searchEmployer = this.searchEmployer;
+
+            if (searchEmployer) {
+                return this.list.filter(function(employer) {
+                    return Object.keys(employer).some(function(key) {
+                        return String(employer[key]).toLowerCase().indexOf(searchEmployer) > -1
+                    })
+                })
+            }
+            return this.list;
+        }
     }
 }
 

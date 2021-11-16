@@ -26,11 +26,18 @@
                 </button>
             </div>
         </div>
-        <div class=" d-flex justify-content-end">
-            <button class="btn btn-info"  v-on:click.prevent="addCourse">Agregar</button>
-        </div>
+        {{-- Busqueda --}}
+            <div class="input-group icons">
+                <input type="text" class="form-control" v-model="searchCourse" @keyup.page-down="searchDataCourses" placeholder="Bucar cursos">
+            </div>
+
+        {{-- Boton agregar --}}
+
         <div class="card">
             <div class="card-body">
+                <div class=" d-flex justify-content-end">
+                    <button class="btn btn-info"  v-on:click.prevent="addCourse">Agregar</button>
+                </div>
                 <div class="active-member">
                     <div class="table-responsive">
                         <table class="table table-xs mb-0">
@@ -47,7 +54,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="item in list">
+                                <tr v-for="item in searchDataCourses">
                                     <td>@{{item.id}}</td>
                                     <td>
                                         <span>@{{item.nombre}}</span>

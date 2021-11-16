@@ -28,11 +28,16 @@
                 </button>
             </div>
         </div>
-        <div class=" d-flex justify-content-end">
-            <button class="btn btn-info"  v-on:click.prevent="addEdition">Agregar</button>
+        {{-- Busqueda --}}
+        <div class="input-group icons">
+            <input type="text" class="form-control" v-model="searchEdition" @keyup.page-down="searchDataEditions" placeholder="Bucar ediciones">
         </div>
+
         <div class="card">
             <div class="card-body">
+                <div class=" d-flex justify-content-end">
+                    <button class="btn btn-info"  v-on:click.prevent="addEdition">Agregar</button>
+                </div>
                 <div class="active-member">
                     <div class="table-responsive">
                         <table class="table table-xs mb-0">
@@ -51,7 +56,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="item in list">
+                                <tr v-for="item in searchDataEditions">
                                     <td>@{{item.id}}</td>
                                     <td>
                                         <span>@{{item.course.nombre}}</span>

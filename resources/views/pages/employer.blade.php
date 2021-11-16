@@ -26,11 +26,16 @@
                 </button>
             </div>
         </div>
-        <div class=" d-flex justify-content-end">
-            <button class="btn btn-info"  v-on:click.prevent="addEmployer">Agregar</button>
+        {{-- Busqueda --}}
+        <div class="input-group icons">
+            <input type="text" class="form-control" v-model="searchEmployer" @keyup.page-down="searchDataEmployers" placeholder="Bucar empleados">
         </div>
+
         <div class="card">
             <div class="card-body">
+                <div class=" d-flex justify-content-end">
+                    <button class="btn btn-info"  v-on:click.prevent="addEmployer">Agregar</button>
+                </div>
                 <div class="active-member">
                     <div class="table-responsive">
                         <table class="table table-xs mb-0">
@@ -54,7 +59,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="item in list">
+                                <tr v-for="item in searchDataEmployers">
                                     <td>@{{item.id}}</td>
                                     <td>
                                         <span>@{{item.name}}</span>

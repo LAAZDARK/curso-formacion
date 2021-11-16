@@ -25,6 +25,13 @@ class EditionController extends Controller
 
         $editions = Edition::with('course', 'user')->orderBy('id', 'desc')->get();
 
+        // foreach ($editions as $edition){
+
+        //     foreach ($edition as $item){
+        //         $editions['courseName'] = $item->nombre;
+        //     }
+        // }
+
 
         return $this->sendResponse($editions, 'Lista de ediciones de cursos');
     }
