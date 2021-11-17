@@ -58,6 +58,66 @@
                     </div>
                 </div>
 
+                {{-- Mis cursos --}}
+
+                {{-- Busqueda --}}
+                <div class="row">
+                    <div class="input-group icons">
+                        <input type="text" class="form-control" v-model="searchEdition" @keyup.page-down="searchDataEditions" placeholder="Bucar en mis cursos">
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="active-member">
+                                <div class="table-responsive">
+                                    <table class="table table-xs mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Curso</th>
+                                                <th>Instructor</th>
+                                                <th>Lugar</th>
+                                                <th>Feha de inicio</th>
+                                                <th>Feha de fin</th>
+                                                <th>Horario</th>
+                                                <th>Creado</th>
+                                                <th>Eliminar</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr v-for="item in searchDataEditions">
+                                                <td>@{{item.id}}</td>
+                                                <td>
+                                                    <span>@{{item.course.nombre}}</span>
+                                                </td>
+                                                <td>
+                                                    <span>@{{item.user.name}}</span>
+                                                </td>
+                                                <td>
+                                                    <span>@{{item.direccion}}</span>
+                                                </td>
+                                                <td>
+                                                    <span>@{{item.fecha_inicio}}</span>
+                                                </td>
+                                                <td>
+                                                    <span>@{{item.fecha_fin}}</span>
+                                                </td>
+                                                <td>
+                                                    <span>@{{item.horario}}</span>
+                                                </td>
+                                                <td>
+                                                    <span>@{{item.created_at}}</span>
+                                                </td>
+                                                <td><button class="btn btn-danger btn-sm" v-on:click.prevent="deleteEdition(item.id)">Eliminar</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
                 <div class="row">
                     <div class="col-xl-3 col-lg-6 col-sm-6 col-xxl-6">
@@ -67,7 +127,7 @@
                                 <div id="activity">
                                     @foreach ($courses as $item)
                                         <div class="media border-bottom-1 pt-3 pb-3">
-                                            <img width="35" src="./images/avatar/1.jpg" class="mr-3 rounded-circle">
+                                            {{-- <img width="35" src="./images/avatar/1.jpg" class="mr-3 rounded-circle"> --}}
                                             <div class="media-body">
                                                 <h5>{{$item->nombre}}</h5>
                                                 <p class="mb-0">{{$item->descripcion}}</p>

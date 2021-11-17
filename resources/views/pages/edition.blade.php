@@ -10,6 +10,7 @@
 <input type="hidden" ref="storeEdition" value="{{ route('edition.store')}}">
 <input type="hidden" ref="getListUser" value="{{ route('list.trained.user')}}">
 <input type="hidden" ref="getListCourse" value="{{ route('list.courses')}}">
+<input type="hidden" ref="applyCourse" value="{{ route('apply.course')}}">
 <div class="row">
     <div class="col-lg-12">
         <div v-if="message.success">
@@ -44,13 +45,14 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Curso</th>
-                                    <th>Instructor</th>
-                                    <th>Lugar</th>
-                                    <th>Feha de inicio</th>
-                                    <th>Feha de fin</th>
-                                    <th>Horario</th>
+                                    <th width="150px">Curso</th>
+                                    <th width="150px">Instructor</th>
+                                    <th width="150px">Lugar</th>
+                                    <th width="200px">Inicio</th>
+                                    <th width="120px">Fin</th>
+                                    <th width="150px">Horario</th>
                                     <th>Creado</th>
+                                    <th>Aplicar</th>
                                     <th>Editar</th>
                                     <th>Eliminar</th>
                                 </tr>
@@ -79,8 +81,8 @@
                                     <td>
                                         <span>@{{item.created_at}}</span>
                                     </td>
+                                    <td><button class="btn btn-success btn-sm text-white"  v-on:click.prevent="applicationsCourse(item.id)">Aplicar</button></td>
                                     <td><button class="btn btn-info btn-sm"  v-on:click.prevent="editEdition(item)">Editar</button></td>
-                                    {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button> --}}
                                     <td><button class="btn btn-danger btn-sm" v-on:click.prevent="deleteEdition(item.id)">Eliminar</button></td>
                                 </tr>
 

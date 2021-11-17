@@ -94,8 +94,8 @@ const Edition = {
                 this.message = response.data
 
             }).catch(error => {
-                console.log("Error edit Edition")
                 console.log(error)
+                this.error = "Error al actualizar, intente mas tarde"
             })
         },
         async storeEdition () {
@@ -119,7 +119,18 @@ const Edition = {
             .then(response => { //eliminamos
 				this.showEdition()
 			});
-		}
+		},
+        applicationsCourse:  function(id) {
+            axios.get(this.$refs.applyCourse.value + '/' + id)
+            .then(response => {
+                this.showEdition()
+                this.message = response.data
+
+            }).catch(error => {
+                console.log(error)
+                this.error = "No se puede tomar el mismo curso, espere la siguiente edición"
+            })
+        }
     },
     computed: {
         searchDataEditions: function() {

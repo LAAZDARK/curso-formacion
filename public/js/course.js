@@ -78,7 +78,6 @@ const Course = {
             })
         },
         deleteCourse: function(id) {
-            // console.log(id);
 			axios.delete(this.$refs.getCourse.value + '/' + id)
             .then(response => { //eliminamos
 				this.show()

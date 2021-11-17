@@ -3,24 +3,19 @@
 namespace App\Models;
 
 use App\Models\User;
-use App\Models\Apply;
-use App\Models\Course;
+use App\Models\Edition;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Edition extends Model
+class Apply extends Model
 {
     use HasFactory;
-    public $table = "editions";
+    public $table = "applications";
 
     protected $fillable = [
         'id',
-        'fecha_inicio',
-        'fecha_fin',
-        'horario',
-        'direccion',
         'course_id',
-        'teacher_id'
+        'user_id'
     ];
 
     protected $date = [
@@ -31,15 +26,11 @@ class Edition extends Model
         'created_at' => 'datetime:d/m/Y H:i:s',
     ];
 
-    public function course () {
-        return $this->belongsTo(Course::class);
+    public function edition () {
+        return $this->belongsTo(Edition::class);
     }
     public function user () {
         return $this->belongsTo(User::class, 'teacher_id');
-    }
-
-    public function applications () {
-        return $this->hasMany(Apply::class);
     }
 
 

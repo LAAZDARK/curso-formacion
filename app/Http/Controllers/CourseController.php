@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use Exception;
 
+use App\Models\User;
+use App\Models\Apply;
 use App\Models\Course;
+use App\Models\Edition;
 use App\Traits\ResponseApi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -86,5 +89,67 @@ class CourseController extends Controller
         $user->delete();
 
         return $this->sendResponse(true, 'se ha elimindao el articulo seleccionado');
+    }
+
+
+
+    /**
+     * Suscripción de curso a traves de edicion
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string  $id Model Edition
+     * @return object $apply
+     */
+
+    public function applyCourse(Request $request, $id): object
+    {
+        try {
+            $user = $request->user();
+
+            $edition = Edition::find($id);
+
+            if(empty($edition)){
+                throw new Exception('No se encontro nungun curso registrado');
+            }
+
+            $course = Apply::where('user_id', $user->id)->where('edition_id', $edition->id)->first();
+            if(!empty($course)){
+                throw new Exception('No puede tomar el mismo curso, espera la siguiente edición.');
+            }
+
+            $apply = new Apply();
+            $apply->user_id = $user->id;
+            $apply->edition_id = $edition->id;
+            $apply->save();
+
+
+            return $this->sendResponse($apply, 'Se agrego el curso correctamente');
+        } catch (\Throwable $error) {
+
+            return $this->sendError('CourseController ApplyCourse', $error->getMessage(), 401);
+        }
+
+
+    }
+
+
+    public function myCourses(Request $request)
+    {
+        try {
+
+            $user = $request->user();
+
+            $courses = Apply::where('user_id', $user->id)->orderBy('id', 'desc')->get();
+
+            if(empty($courses)) throw new \Exception('No cuentas con cursos registrados');
+
+            return $this->sendResponse($courses, 'Lista de cursos');
+
+        } catch (\Throwable $error) {
+
+            return $this->sendError('CourseController MyCourses', $error->getMessage(), 401);
+        }
+
+
     }
 }
