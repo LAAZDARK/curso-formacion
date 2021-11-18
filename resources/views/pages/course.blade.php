@@ -71,7 +71,7 @@
                                     <td>
                                         <span>@{{item.created_at}}</span>
                                     </td>
-                                    <td><button class="btn btn-success btn-sm text-white"  v-on:click.prevent="applyCourse(item)">Aplicar</button></td>
+                                    {{-- <td><button class="btn btn-success btn-sm text-white"  v-on:click.prevent="applyCourse(item)">Aplicar</button></td> --}}
                                     <td><button class="btn btn-info btn-sm"  v-on:click.prevent="editCourse(item)">Editar</button></td>
                                     <td><button class="btn btn-danger btn-sm" v-on:click.prevent="deleteCourse(item.id)">Eliminar</button></td>
                                 </tr>

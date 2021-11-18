@@ -110,17 +110,16 @@
           <div class="col-lg-6">
             <div class="hero-content">
               <h1 class="wow fadeInUp" data-wow-delay=".4s">
-                Your using free lite version
+                Lorem Ipsum is simply dummy text of the printing
               </h1>
               <p class="wow fadeInUp" data-wow-delay=".6s">
-                Please, purchase full version to get all sections, features and
-                permission to remove footer credit.
+                Lorem Ipsum is simply dummy text of the printing, Lorem Ipsum is simply dummy text of the printing
               </p>
               <a
                 href="javascript:void(0)"
                 class="main-btn border-btn btn-hover wow fadeInUp"
                 data-wow-delay=".6s"
-                >Purchase Now</a
+                >Iniciar sesión</a
               >
               <a href="#features" class="scroll-bottom">
                 <i class="lni lni-arrow-down"></i

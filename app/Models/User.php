@@ -64,7 +64,7 @@ class User extends Authenticatable
     }
 
     public function editions () {
-        return $this->hasMany(Edition::class);
+        return $this->hasMany(Edition::class, 'user_id');
     }
 
     public function applications () {

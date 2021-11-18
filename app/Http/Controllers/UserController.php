@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 
+use App\Models\Apply;
 use App\Models\Course;
 use App\Traits\ResponseApi;
 use Illuminate\Http\Request;
@@ -70,10 +71,33 @@ class UserController extends Controller
         return $this->sendResponse(true, 'se ha elimindao el articulo seleccionado');
     }
 
-    public function listOfTrainedUsers()
+    public function listOfTrainedUsers($course_id)
     {
-        $users = User::where('status', '1')->orderBy('id', 'desc')->get();
-        return $this->sendResponse($users, 'Lista de usuarios capacitados');
+        // return $course_id;
+        $course = Course::where('id', $course_id)->first();
+
+        $editions = $course->editions;
+
+        foreach ($editions as $edition){
+            $user[] = Apply::where('edition_id', $edition->id)->get();
+        }
+
+        foreach($user as $item){
+            foreach ($item as $dd){
+                $data[] = User::where('id', $dd->user_id)->first();
+
+                // $data[] = $dd;
+            }
+        }
+
+        // $users = User::where('status', '1')->orderBy('id', 'desc')->get();
+
+        // foreach ($users as $user){
+        //     $users[] = $user->editions;
+        // }
+
+
+        return $this->sendResponse($data, 'Lista de usuarios capacitados');
     }
     public function listCourses()
     {

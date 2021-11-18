@@ -4,6 +4,9 @@ const Edition = {
             form: {
                 fecha_inicio: '',
             },
+            filter: {
+                idCourse: ''
+            },
             send: '',
             list: [],
             message: "",
@@ -15,12 +18,13 @@ const Edition = {
     },
     mounted: function() {
         this.showEdition()
-        this.listTrainedUser()
+        // this.listTrainedUser()
         this.listCourse()
     },
     methods: {
         async listTrainedUser () {
-            await axios.get(this.$refs.getListUser.value)
+            console.log(this.form.course_id)
+            await axios.get(this.$refs.getListUser.value + '/' + this.form.course_id)
             .then(response => {
                 this.listUsers = response.data.data
                 console.log(this.listUsers)

@@ -33,7 +33,7 @@ class Course extends Model
     ];
 
     public function editions () {
-        return $this->hasMany(Edition::class);
+        return $this->hasMany(Edition::class, 'course_id');
     }
 
 

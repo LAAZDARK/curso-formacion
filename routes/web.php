@@ -48,7 +48,7 @@ Route::middleware('auth:web')->group(function () {
     Route::resource('edition', EditionController::class)->names('edition');
 
 
-    Route::get("/user/trained", [UserController::class, "listOfTrainedUsers"])->name('list.trained.user');
+    Route::get("/user/trained/{course_id?}", [UserController::class, "listOfTrainedUsers"])->name('list.trained.user');
     Route::get("/courses/list", [UserController::class, "listCourses"])->name('list.courses');
 
     Route::get("/list/courses/top", [UserController::class, "listCourseTop"])->name('list.course.top');
@@ -57,5 +57,6 @@ Route::middleware('auth:web')->group(function () {
 
     Route::get("/apply/course/{id?}", [CourseController::class, "applyCourse"])->name('apply.course');
 
+    Route::get("/list/mycourse", [CourseController::class, "myCourses"])->name('list.my.course');
 
 });

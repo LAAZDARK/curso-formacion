@@ -3,7 +3,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Crear Empleado</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Crear Edición</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -13,7 +13,7 @@
           <input type="hidden" v-model="form.id" class="form-control" >
           <div class="form-group">
               <label >Nombre del curso</label>
-              <select class="form-control" v-model="form.course_id" >
+              <select class="form-control" v-model="form.course_id" v-on:change="listTrainedUser" >
                 <option v-for="course in listCourses" v-bind:value="course.id">
                     @{{course.nombre}}
                 </option>

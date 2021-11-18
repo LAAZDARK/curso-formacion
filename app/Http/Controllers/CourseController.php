@@ -122,6 +122,8 @@ class CourseController extends Controller
             $apply->edition_id = $edition->id;
             $apply->save();
 
+            $user->status = User::STATUS_TRUE;
+            $user->save();
 
             return $this->sendResponse($apply, 'Se agrego el curso correctamente');
         } catch (\Throwable $error) {
@@ -139,7 +141,13 @@ class CourseController extends Controller
 
             $user = $request->user();
 
-            $courses = Apply::where('user_id', $user->id)->orderBy('id', 'desc')->get();
+            $courses = Apply::where('user_id', $user->id)->with('edition')->orderBy('id', 'desc')->get();
+
+            foreach($courses as $course){
+                $courses->data = $course->edition->course;
+            }
+
+            // $myCourses = $myCourses->with('editions')->get();
 
             if(empty($courses)) throw new \Exception('No cuentas con cursos registrados');
 

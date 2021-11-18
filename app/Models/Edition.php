@@ -39,7 +39,7 @@ class Edition extends Model
     }
 
     public function applications () {
-        return $this->hasMany(Apply::class);
+        return $this->hasMany(Apply::class, 'edition_id');
     }
 
 

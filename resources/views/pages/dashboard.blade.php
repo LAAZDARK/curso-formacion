@@ -4,6 +4,9 @@
 <!--**********************************
             Content body start
         ***********************************-->
+
+    <div id="mycourse">
+        <input type="hidden" ref="getMyCourse" value="{{ route('list.my.course')}}">
         <div class="content-body">
 
             <div class="container-fluid mt-3">
@@ -62,51 +65,42 @@
 
                 {{-- Busqueda --}}
                 <div class="row">
-                    <div class="input-group icons">
-                        <input type="text" class="form-control" v-model="searchEdition" @keyup.page-down="searchDataEditions" placeholder="Bucar en mis cursos">
+                    <div class="input-group icons col-10">
+                        <input type="text" class="form-control" v-model="searchCourse" @keyup.page-down="searchDataMyCourses" placeholder="Bucar en mis cursos">
                     </div>
 
                     <div class="card">
                         <div class="card-body">
                             <div class="active-member">
                                 <div class="table-responsive">
+                                    <h3>Mis Cursos</h3>
                                     <table class="table table-xs mb-0">
                                         <thead>
                                             <tr>
-                                                <th>Id</th>
+                                                <th>Id Edición</th>
+                                                <th>Id Curso</th>
                                                 <th>Curso</th>
-                                                <th>Instructor</th>
-                                                <th>Lugar</th>
-                                                <th>Feha de inicio</th>
-                                                <th>Feha de fin</th>
-                                                <th>Horario</th>
+                                                <th>Descripción</th>
+                                                <th>Duracion</th>
                                                 <th>Creado</th>
                                                 <th>Eliminar</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr v-for="item in searchDataEditions">
-                                                <td>@{{item.id}}</td>
+                                            <tr v-for="item in searchDataMyCourses">
+                                                <td>@{{item.edition_id}}</td>
+                                                <td>@{{item.edition.course.id}}</td>
                                                 <td>
-                                                    <span>@{{item.course.nombre}}</span>
+                                                    <span>@{{item.edition.course.nombre}}</span>
                                                 </td>
                                                 <td>
-                                                    <span>@{{item.user.name}}</span>
+                                                    <span>@{{item.edition.course.descripcion.substring(0,20)}}</span>
                                                 </td>
                                                 <td>
-                                                    <span>@{{item.direccion}}</span>
+                                                    <span>@{{item.edition.course.duracion}}</span>
                                                 </td>
                                                 <td>
-                                                    <span>@{{item.fecha_inicio}}</span>
-                                                </td>
-                                                <td>
-                                                    <span>@{{item.fecha_fin}}</span>
-                                                </td>
-                                                <td>
-                                                    <span>@{{item.horario}}</span>
-                                                </td>
-                                                <td>
-                                                    <span>@{{item.created_at}}</span>
+                                                    <span>@{{item.edition.course.created_at}}</span>
                                                 </td>
                                                 <td><button class="btn btn-danger btn-sm" v-on:click.prevent="deleteEdition(item.id)">Eliminar</button></td>
                                             </tr>
@@ -161,6 +155,7 @@
             </div>
             <!-- #/ container -->
         </div>
+    </div>
         <!--**********************************
             Content body end
         ***********************************-->
