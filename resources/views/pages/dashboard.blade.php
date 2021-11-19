@@ -82,25 +82,25 @@
                                                 <th>Curso</th>
                                                 <th>Descripción</th>
                                                 <th>Duracion</th>
-                                                <th>Creado</th>
+                                                <th>Instructor</th>
                                                 <th>Eliminar</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr v-for="item in searchDataMyCourses">
-                                                <td>@{{item.edition_id}}</td>
-                                                <td>@{{item.edition.course.id}}</td>
+                                                <td>@{{item.idEdition}}</td>
+                                                <td>@{{item.idCourse}}</td>
                                                 <td>
-                                                    <span>@{{item.edition.course.nombre}}</span>
+                                                    <span>@{{item.nombreCourse}}</span>
                                                 </td>
                                                 <td>
-                                                    <span>@{{item.edition.course.descripcion.substring(0,20)}}</span>
+                                                    <span>@{{item.descripcionCourse.substring(0,30)}}</span>
                                                 </td>
                                                 <td>
-                                                    <span>@{{item.edition.course.duracion}}</span>
+                                                    <span>@{{item.duracionCourse}}</span>
                                                 </td>
                                                 <td>
-                                                    <span>@{{item.edition.course.created_at}}</span>
+                                                    <span>@{{item.idTeacher}}</span>
                                                 </td>
                                                 <td><button class="btn btn-danger btn-sm" v-on:click.prevent="deleteEdition(item.id)">Eliminar</button></td>
                                             </tr>

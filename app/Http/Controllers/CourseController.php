@@ -10,6 +10,7 @@ use App\Models\Course;
 use App\Models\Edition;
 use App\Traits\ResponseApi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -141,13 +142,15 @@ class CourseController extends Controller
 
             $user = $request->user();
 
-            $courses = Apply::where('user_id', $user->id)->with('edition')->orderBy('id', 'desc')->get();
+            // $courses = Apply::where('user_id', $user->id)->with('edition')->orderBy('id', 'desc')->get();
 
-            foreach($courses as $course){
-                $courses->data = $course->edition->course;
-            }
+            // foreach($courses as $course){
+            //     $courses->data = $course->edition->course;
+            // }
 
             // $myCourses = $myCourses->with('editions')->get();
+
+            $courses = DB::select("CALL get_my_courses($user->id)");
 
             if(empty($courses)) throw new \Exception('No cuentas con cursos registrados');
 

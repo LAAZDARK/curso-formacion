@@ -18,7 +18,7 @@ const MyCourse = {
         async show () {
             await axios.get(this.$refs.getMyCourse.value)
             .then(response => {
-                console.log(response.data.data)
+                // console.log(response.data.data)
                 this.list = response.data.data
 
             }).catch(error => {
