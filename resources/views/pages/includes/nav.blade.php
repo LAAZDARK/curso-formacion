@@ -10,7 +10,7 @@
 
         <div class="nav-header">
             <div class="brand-logo">
-                <a href="index.html">
+                <a href="{{ route('view.dashboard')}}">
                     <b class="logo-abbr"><img src="{{ asset('images/logo.png')}}" alt=""> </b>
                     <span class="logo-compact"><img src="{{ asset('images/logo-compact.png')}}" alt=""></span>
                     <span class="brand-title">
@@ -26,6 +26,14 @@
                 <div class="nav-control">
                     <div class="hamburger">
                         <span class="toggle-icon"><i class="icon-menu"></i></span>
+                    </div>
+                </div>
+                <div class="header-left">
+                    <div class="input-group icons">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1">Hola, {{$user->name}}</span>
+
+                        </div>
                     </div>
                 </div>
                 {{-- <div class="header-left">

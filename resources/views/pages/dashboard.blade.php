@@ -7,6 +7,7 @@
 
     <div id="mycourse">
         <input type="hidden" ref="getMyCourse" value="{{ route('list.my.course')}}">
+        <input type="hidden" ref="deleteMyCourse" value="{{ route('delete.my.course')}}">
         <div class="content-body">
 
             <div class="container-fluid mt-3">
@@ -102,7 +103,7 @@
                                                 <td>
                                                     <span>@{{item.idTeacher}}</span>
                                                 </td>
-                                                <td><button class="btn btn-danger btn-sm" v-on:click.prevent="deleteEdition(item.id)">Eliminar</button></td>
+                                                <td><button class="btn btn-danger btn-sm" v-on:click.prevent="deleteMyCourse(item.idApplication)">Eliminar</button></td>
                                             </tr>
                                         </tbody>
                                     </table>

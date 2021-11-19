@@ -20,9 +20,10 @@ class PagesController extends Controller
         return view('pages.index');
     }
 
-    public function viewDashboard()
+    public function viewDashboard(Request $request)
     {
 
+        $user = $request->user();
         $users = User::orderBy('updated_at', 'desc')->limit(5)->get();
         $courses = Course::orderBy('created_at', 'desc')->limit(5)->get();
         $countUsers = User::count();
@@ -38,7 +39,8 @@ class PagesController extends Controller
             'countUsers' => $countUsers,
             'countCourses' => $countCourses,
             'sumHours' => $sumHours,
-            'date' => $date
+            'date' => $date,
+            'user' => $user
         ]);
     }
 
@@ -68,22 +70,22 @@ class PagesController extends Controller
         return view('pages.update-profile',['user' => $user]);
     }
 
-    public function viewCourses()
+    public function viewCourses(Request $request)
     {
-
-        return view('pages.course');
+        $user = $request->user();
+        return view('pages.course',['user' => $user]);
     }
 
-    public function viewEmployers()
+    public function viewEmployers(Request $request)
     {
-
-        return view('pages.employer');
+        $user = $request->user();
+        return view('pages.employer',['user' => $user]);
     }
 
-    public function viewEditions()
+    public function viewEditions(Request $request)
     {
-
-        return view('pages.edition');
+        $user = $request->user();
+        return view('pages.edition',['user' => $user]);
     }
 
 

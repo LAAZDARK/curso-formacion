@@ -163,4 +163,26 @@ class CourseController extends Controller
 
 
     }
+
+    public function deleteMyCourse(Request $request)
+    {
+        try {
+            $user = $request->user();
+
+            $idApplication = $request->input('idApplication');
+
+            $apply = Apply::find($idApplication);
+
+            if(empty($apply)) throw new \Exception('No se encontro ningun curso registrado');
+
+            $apply->delete();
+
+            return $this->sendResponse($apply, 'Se elimino correctamnete');
+
+        } catch (\Throwable $error) {
+
+            return $this->sendError('CourseController deleteMyCourse', $error->getMessage(), 401);
+        }
+
+    }
 }

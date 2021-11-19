@@ -58,5 +58,6 @@ Route::middleware('auth:web')->group(function () {
     Route::get("/apply/course/{id?}", [CourseController::class, "applyCourse"])->name('apply.course');
 
     Route::get("/list/mycourse", [CourseController::class, "myCourses"])->name('list.my.course');
+    Route::post("/list/delete/mycourse", [CourseController::class, "deleteMyCourse"])->name('delete.my.course');
 
 });

@@ -3,6 +3,7 @@ const MyCourse = {
         return {
             form: {
                 nombre: '',
+                idApplication: ''
             },
             send: '',
             list: [],
@@ -24,13 +25,18 @@ const MyCourse = {
             }).catch(error => {
                 this.error = error
             })
-            this.dialog = false
         },
-        deleteCourse: function(id) {
-			axios.delete(this.$refs.getMyCourse.value + '/' + id)
+        deleteMyCourse: function(id) {
+            this.form = {
+                idApplication: id
+            }
+            // console.log(this.form)
+			axios.post(this.$refs.deleteMyCourse.value, this.form)
             .then(response => { //eliminamos
 				this.show()
-			});
+			}).catch(error => {
+                this.error = error
+            })
 		}
     },
     computed: {

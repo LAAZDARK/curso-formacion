@@ -47,7 +47,7 @@
           <div class="row align-items-center">
             <div class="col-lg-12">
               <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="{{ route('home')}}">
                   <img src="{{ asset('images/logo.png')}}" alt="Logo" />
                 </a>
                 <button
@@ -116,7 +116,7 @@
                 Lorem Ipsum is simply dummy text of the printing, Lorem Ipsum is simply dummy text of the printing
               </p>
               <a
-                href="javascript:void(0)"
+                href="{{route('login')}}"
                 class="main-btn border-btn btn-hover wow fadeInUp"
                 data-wow-delay=".6s"
                 >Iniciar sesión</a
