@@ -78,10 +78,6 @@
                     <li class="nav-item">
                       <a class="page-scroll" href="#about">Acerca de</a>
                     </li>
-
-                    <li class="nav-item">
-                      <a class="page-scroll" href="#why">¿Por qué?</a>
-                    </li>
                     <li class="nav-item">
                       <a href="{{ route('login')}}">Iniciar sesión</a>
                     </li>
@@ -110,10 +106,10 @@
           <div class="col-lg-6">
             <div class="hero-content">
               <h1 class="wow fadeInUp" data-wow-delay=".4s">
-                Lorem Ipsum is simply dummy text of the printing
+                Llegó el momento de especializarse
               </h1>
               <p class="wow fadeInUp" data-wow-delay=".6s">
-                Lorem Ipsum is simply dummy text of the printing, Lorem Ipsum is simply dummy text of the printing
+                con los mejores cursos en línea.
               </p>
               <a
                 href="{{route('login')}}"
@@ -128,7 +124,7 @@
           </div>
           <div class="col-lg-6">
             <div class="hero-img wow fadeInUp" data-wow-delay=".5s">
-              <img src="{{ asset('img/hero/hero-img.png')}}" alt="" />
+              <img src="{{ asset('img/home/devices.jpg')}}" style="height: 460px; border-radius: 10%;" alt="" />
             </div>
           </div>
         </div>
@@ -146,10 +142,9 @@
                 <i class="lni lni-bootstrap"></i>
               </div>
               <div class="content">
-                <h3>Bootstrap 5</h3>
+                <h3>Programación</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore
+                    Tenemos múltiples cursos de programación con C#, java, PHP, JavaScript, C, etc..
                 </p>
               </div>
             </div>
@@ -160,10 +155,9 @@
                 <i class="lni lni-layout"></i>
               </div>
               <div class="content">
-                <h3>Clean Design</h3>
+                <h3>Diseño</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore
+                    Contamos con los mejores instructores y arquitectos en diseño que a través de cursos nos comparten sus conocimientos.
                 </p>
               </div>
             </div>
@@ -174,10 +168,9 @@
                 <i class="lni lni-coffee-cup"></i>
               </div>
               <div class="content">
-                <h3>Easy to Use</h3>
+                <h3>Administración</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore
+                    Parte nuestro objetivo como empresa es tener una buena administración pero no será posible sin tu ayuda.
                 </p>
               </div>
             </div>
@@ -195,24 +188,22 @@
             <div class="about-content">
               <div class="section-title mb-30">
                 <h2 class="mb-25 wow fadeInUp" data-wow-delay=".2s">
-                  Easy to Use with Tons of Awesome Features
+                    Prepárate con cursos en linea
                 </h2>
                 <p class="wow fadeInUp" data-wow-delay=".4s">
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua.
+                    Prepárate es una plataforma online de cursos empresariales que permite a todos sus colaboradores tomar e impartir cursos, desde cualquier lugar.
                 </p>
               </div>
               <ul>
-                <li>Quick Access</li>
-                <li>Easily to Manage</li>
-                <li>24/7 Support</li>
+                <li>Acceso rapido</li>
+                <li>Fácil de administrar</li>
+                <li>Soporte 24/7</li>
               </ul>
               <a
-                href="javascript:void(0)"
+                href="{{ route('page.register')}}"
                 class="main-btn btn-hover border-btn wow fadeInUp"
                 data-wow-delay=".6s"
-                >Learn More</a
+                >Registrate</a
               >
             </div>
           </div>
@@ -235,115 +226,6 @@
       </div>
     </section>
     <!-- ======== about2-section end ======== -->
-
-    <!-- ======== feature-section start ======== -->
-    <section id="why" class="feature-extended-section pt-100">
-      <div class="feature-extended-wrapper">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-xxl-5 col-xl-6 col-lg-8 col-md-9">
-              <div class="section-title text-center mb-60">
-                <h2 class="mb-25 wow fadeInUp" data-wow-delay=".2s">
-                  Why Choose SaaSpal
-                </h2>
-                <p class="wow fadeInUp" data-wow-delay=".4s">
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-lg-4 col-md-6">
-              <div class="single-feature-extended">
-                <div class="icon">
-                  <i class="lni lni-display"></i>
-                </div>
-                <div class="content">
-                  <h3>SaaS Focused</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="single-feature-extended">
-                <div class="icon">
-                  <i class="lni lni-leaf"></i>
-                </div>
-                <div class="content">
-                  <h3>Awesome Design</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="single-feature-extended">
-                <div class="icon">
-                  <i class="lni lni-grid-alt"></i>
-                </div>
-                <div class="content">
-                  <h3>Ready to Use</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="single-feature-extended">
-                <div class="icon">
-                  <i class="lni lni-javascript"></i>
-                </div>
-                <div class="content">
-                  <h3>Vanilla JS</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="single-feature-extended">
-                <div class="icon">
-                  <i class="lni lni-layers"></i>
-                </div>
-                <div class="content">
-                  <h3>Essential Sections</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="single-feature-extended">
-                <div class="icon">
-                  <i class="lni lni-rocket"></i>
-                </div>
-                <div class="content">
-                  <h3>Highly Optimized</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ======== feature-section end ======== -->
 
     <!-- ======== scroll-top ======== -->
     <a href="#" class="scroll-top btn-hover">

@@ -34,6 +34,13 @@ class EmployerController extends Controller
 
 
 
+    /**
+     * update // Actualiza los empleados
+     *
+     * @param  Illuminate\Http\Request $request
+     * @param  App\Models\User $id
+     * @return object $users
+     */
     public function update(Request $request, $id)
     {
 

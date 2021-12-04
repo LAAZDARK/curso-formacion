@@ -60,7 +60,7 @@
                                     </div>
                                     <button class="btn login-form__btn submit w-100">Iniciar sesión</button>
                                 </form>
-                                <p class="mt-5 login-form__footer">¿No tiene una cuenta? <a href="{{ route('page.register')}}" class="text-primary">Registrese a quí</a> now</p>
+                                <p class="mt-5 login-form__footer">¿No tiene una cuenta? <a href="{{ route('page.register')}}" class="text-primary">Registrese a quí</a></p>
                             </div>
                         </div>
                     </div>
